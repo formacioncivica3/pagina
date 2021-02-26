@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="peliculas.css".css">
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
+    <title>Document</title>
+</head>
+<body>
+    <main>
+
+		<div class="peliculas-recomendadas contenedor">
+			<div class="contenedor-titulo-controles">
+				<h3>Películas familiares</h3>
+				
+			</div>
+
+			<div class="contenedor-principal">
+				<button role="button"  id="flecha-izquierda" class="flecha-izquierda"><i class="fas fa-angle-left"></i></button>
+
+				<div class="contenedor-carousel">
+					<div class="carousel">
+						<div class="pelicula">
+							<a target="_blank" href="https://www.youtube.com/watch?v=K7ldVWBc8rI"><img height="162" src="Donde esta el dragon.PNG" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a target="_blank" href="https://www.youtube.com/watch?v=nztuMJKXJaI"><img height="162" src="Fe y familia.PNG" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a target="_blank" href="https://www.youtube.com/watch?v=Q2LiS4WftqA"><img height="162" src="Chico de oro.PNG" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a target="_blank" href="https://www.youtube.com/watch?v=1I4QpfQaTTo"><img height="162" src="El verdadero amor.PNG" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a target="_blank" href="https://www.youtube.com/watch?v=dB94fh_nfeE"><img height="162" src="La historia de wim.PNG"></a>
+						</div>
+						<div class="pelicula">
+							<a target="_blank" href="https://www.youtube.com/watch?v=4UogeNnpeYo"><img height="162" src="Santos soldados.PNG" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a target="_blank" href="https://www.youtube.com/watch?v=81RtuAb-hcQ"><img height="162" src="Tiempo de ezperansa.PNG" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a target="_blank" href="https://www.youtube.com/watch?v=xW1P2VMdTHc"><img height="162" src="Una estrella.PNG" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a target="_blank" href="https://www.youtube.com/watch?v=wlYDdRKbhhM"><img height="162" src="Prueba de fe.PNG" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a target="_blank" href="https://www.youtube.com/watch?v=K-RmTA61yeA"><img height="162" src="Espia por accidente.PNG" alt=""></a>
+						</div>
+
+					</div>
+				</div>
+
+				<button role="button" id="flecha-derecha" class="flecha-derecha"><i class="fas fa-angle-right"></i></button>
+			</div>
+		
+        </main>
+        <script>const fila = document.querySelector('.contenedor-carousel');
+			const peliculas = document.querySelectorAll('.pelicula');
+			
+			const flechaIzquierda = document.getElementById('flecha-izquierda');
+			const flechaDerecha = document.getElementById('flecha-derecha');
+			
+			// ? ----- ----- Event Listener para la flecha derecha. ----- -----
+			flechaDerecha.addEventListener('click', () => {
+				fila.scrollLeft += fila.offsetWidth;
+			
+				const indicadorActivo = document.querySelector('.indicadores .activo');
+				if(indicadorActivo.nextSibling){
+					indicadorActivo.nextSibling.classList.add('activo');
+					indicadorActivo.classList.remove('activo');
+					
+				}
+			});
+			
+			// ? ----- ----- Event Listener para la flecha izquierda. ----- -----
+			flechaIzquierda.addEventListener('click', () => {
+				fila.scrollLeft -= fila.offsetWidth;
+			
+				const indicadorActivo = document.querySelector('.indicadores .activo');
+				if(indicadorActivo.previousSibling){
+					indicadorActivo.previousSibling.classList.add('activo');
+					indicadorActivo.classList.remove('activo');
+				}
+			});
+			
+			// ? ----- ----- Paginacion ----- -----
+			const numeroPaginas = Math.ceil(peliculas.length / 5);
+			for(let i = 0; i < numeroPaginas; i++){
+				const indicador = document.createElement('button');
+			
+				if(i === 0){
+					indicador.classList.add('activo');
+				}
+			
+				document.querySelector('.indicadores').appendChild(indicador);
+				indicador.addEventListener('click', (e) => {
+					fila.scrollLeft = i * fila.offsetWidth;
+			
+					document.querySelector('.indicadores .activo').classList.remove('activo');
+					e.target.classList.add('activo');
+				});
+			}
+			
+			// ? ----- ----- Hover ----- -----
+			peliculas.forEach((pelicula) => {
+				pelicula.addEventListener('mouseenter', (e) => {
+					const elemento = e.currentTarget;
+					setTimeout(() => {
+						peliculas.forEach(pelicula => pelicula.classList.remove('hover'));
+						elemento.classList.add('hover');
+					}, 300);
+				});
+			});
+			
+			fila.addEventListener('mouseleave', () => {
+				peliculas.forEach(pelicula => pelicula.classList.remove('hover'));
+			});</script>
+        <script src="https://kit.fontawesome.com/d58ec692f8.js" crossorigin="anonymous"></script>
+</body>
+</html>
