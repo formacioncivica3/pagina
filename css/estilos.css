@@ -15,7 +15,7 @@ main{
 .content-all{
     width: 100%;
     max-width: 1000px;
-    background: #1780a0;
+    background: #17A086;
     margin: auto;
     margin-top: 80px;
     border: 2px solid white;
@@ -43,7 +43,7 @@ header{
     top: 60px;
     width: 0px;
     height: 100vh;
-
+    background: #2D3E50;
     transition: all 500ms cubic-bezier(1,0,0,1);
     transition-timing-function: cubic-bezier(1,0,0,1);
     overflow: hidden;
@@ -58,7 +58,9 @@ header{
     width: 400px;
 }
 
-
+.menu li:hover{
+    background: rgba(0,0,0,0.2);
+}
 
 article{
     padding: 40px;
