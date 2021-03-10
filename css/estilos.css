@@ -15,10 +15,10 @@ main{
 .content-all{
     width: 100%;
     max-width: 1000px;
-    background: #17A086;
+    background: #124c6d;
     margin: auto;
     margin-top: 80px;
-    border: 2px solid white;
+    border: 2px solid rgb(0, 0, 0);
 }
 
 header{
@@ -103,7 +103,7 @@ article .parrafo1{
 
 article img{
     width: 100%;
-    border: 4px solid white;
+    border: 4px solid rgb(0, 0, 0);
     margin-top: 40px;
 }
 
@@ -113,3 +113,12 @@ article .parrafo2{
     margin-top: 40px;
     letter-spacing: 1px;
 }
+
+
+
+
+
+
+
+
+
