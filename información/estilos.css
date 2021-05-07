@@ -1,0 +1,23 @@
+
+
+table {
+  font-family: comic Sans MS,arial,verdana;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+td, th {
+  border: 1px solid #f1c86f;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: rgb(247, 207, 122);
+}
+tr{
+  background-color: rgb(250, 162, 0);
+}
+thead{
+  background-color: rgb(247, 207, 122);
+}
