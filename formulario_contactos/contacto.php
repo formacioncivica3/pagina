@@ -15,7 +15,7 @@
 
   mail($para,$asunto,utf8_decode($mensaje));
 
-  header ("location: index.html");
+  header ("location: hhh.html");
 
 
  ?>
